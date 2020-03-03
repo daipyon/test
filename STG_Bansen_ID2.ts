@@ -76,7 +76,7 @@ async function WorkStart(JudgeCampaignId){
     }
 
     // 共通のエラー判定
-    await CommonJudgeError(Row, WorkData);
+//     await CommonJudgeError(Row, WorkData);
 
     // F列が「リニア」、G列が「埋め配信」の場合
     if (WorkData[0][0][5] === Linear && WorkData[0][0][6] === Ume) {
