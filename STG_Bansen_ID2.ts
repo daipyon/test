@@ -116,7 +116,8 @@ async function WorkStart(JudgeCampaignId){
 
     // 各パターンのエラー判定
     if (WorkData[0][0][5] === Linear && WorkData[0][0][6] === Ume) {
-      await Pattern1JudgeError(WorkData, Row);
+//       await Pattern1JudgeError(WorkData, Row);
+      ;
     } else if (WorkData[0][0][5] === Linear && WorkData[0][0][6] === Kpi) {
       await Pattern2JudgeError(WorkData, Row);
     } else if (WorkData[0][0][5] === Video && WorkData[0][0][6] === Kpi) {
