@@ -11,12 +11,12 @@ const fs = require('fs');
 RPA.Logger.level = 'INFO';
 
 // スプレッドシートIDとシート名を記載
-const SSID = process.env.Senden_Twitter_SheetID;
+const SSID = process.env.Senden_Twitter_SheetID3;
 const SSName = process.env.Senden_Twitter_SheetName;
 // アイパス一覧シートIDとシート名を記載
 const SSName2 = process.env.Senden_Twitter_SheetName2;
 // 画像などを保存するフォルダのパスを記載 ※.envファイルは同じにしない
-const RPAFolder = process.env.Senden_Twitter_RPAFolder;
+const RPAFolder = process.env.Senden_Twitter_RPAFolder4;
 
 const FilePathData = [''];
 const FirstLoginFlag = ['true'];
@@ -45,7 +45,7 @@ async function WorkStart() {
   FirstLoginFlag[0] = 'false';
 
   // ウェブサイトカードを作成
-  // await CreateWebSiteCard(FilePathData, FilePathDate);
+  await CreateWebSiteCard(FilePathData, FilePathDate);
 
   // Twitter投稿を予約
   // await ReservationTweet(WorkData, FilePathData, FilePathDate);
@@ -253,11 +253,11 @@ async function CreateWebSiteCard(FilePathData, FilePathDate) {
     `※※※RPAテストです※※※ ${FilePathDate[0]}`
   ]);
   // await RPA.WebBrowser.sendKeys(CardName,[FilePathDate[0]]);
-  // 【作成】をクリック
-  const Create = await RPA.WebBrowser.findElementByXPath(
-    '/html/body/div[5]/div/div/div[3]/div/button[3]'
-  );
-  await RPA.WebBrowser.mouseClick(Create);
+//   // 【作成】をクリック
+//   const Create = await RPA.WebBrowser.findElementByXPath(
+//     '/html/body/div[5]/div/div/div[3]/div/button[3]'
+//   );
+//   await RPA.WebBrowser.mouseClick(Create);
   await RPA.sleep(5000);
 }
 
