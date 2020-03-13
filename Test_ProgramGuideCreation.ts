@@ -1251,14 +1251,14 @@ async function GetPhotoshopData(WorkData, Row, PhotoshopData) {
     values: [[`${WorkData[0][0][1]}.psd`]]
   });
   // Photoshopで使用するデータ(AC〜AP列)を取得
-  const PhotoshopData = await RPA.Google.Spreadsheet.getValues({
+  PhotoshopData = await RPA.Google.Spreadsheet.getValues({
     spreadsheetId: `${SSID}`,
     range: `${SSName}!AC${Row[0]}:AP${Row[0]}`
   });
   RPA.Logger.info(PhotoshopData); 
 }
 
-// 配列をcsvで保存
+// 取得したデータをcsvで保存
 async function exportCSV(content) {
   for (var i = 0; i < content.length; i++) {
     var value = content[i];
