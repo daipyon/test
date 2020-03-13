@@ -624,18 +624,6 @@ async function JudgeData(WorkData, Row, Link1, Link2, Link3) {
               );
             }
           }
-        // ダウンロードフォルダに保存
-        request(
-          { method: 'GET', url: ImageUrlRename, encoding: null },
-          function(error, response, body) {
-            if (!error && response.statusCode === 200) {
-              fs.writeFileSync(
-                `${DownloadFolder2}/${Renamming}`,
-                body,
-                'binary'
-              );
-            }
-          }
         );
         RPA.Logger.info('ダウンロード完了です');
       } else {
@@ -1191,19 +1179,6 @@ async function JudgeData(WorkData, Row, Link1, Link2, Link3) {
               );
             }
           }
-        // ダウンロードフォルダに保存
-        request(
-          { method: 'GET', url: ImageUrlRename, encoding: null },
-          function(error, response, body) {
-            if (!error && response.statusCode === 200) {
-              fs.writeFileSync(
-                `${DownloadFolder2}/${Renamming}`,
-                body,
-                'binary'
-              );
-            }
-          }
-        );
         RPA.Logger.info('ダウンロード完了です');
       } else {
         RPA.Logger.info('日付が不一致のため記載ミスです');
