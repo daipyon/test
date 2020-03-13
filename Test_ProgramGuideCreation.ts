@@ -43,7 +43,13 @@ async function WorkStart() {
   const WorkData = [];
   await JudgeData(WorkData, Row, Link1, Link2, Link3);
 
-  await PhotoshopData(WorkData, Row);
+  const PhotoshopData = [];
+  await GetPhotoshopData(WorkData, Row, PhotoshopData);
+  
+  await exportCSV(PhotoshopData);
+  
+  const FilePathData = [];
+  await GetFilePath(FilePathData);
 }
 
 async function Start() {
@@ -1262,7 +1268,7 @@ async function JudgeData(WorkData, Row, Link1, Link2, Link3) {
   }
 }
 
-async function PhotoshopData(WorkData, Row) {
+async function GetPhotoshopData(WorkData, Row, PhotoshopData) {
   // AP列にPSD保存用の画像名を記載
   await RPA.Google.Spreadsheet.setValues({
     spreadsheetId: `${SSID}`,
@@ -1274,29 +1280,49 @@ async function PhotoshopData(WorkData, Row) {
     spreadsheetId: `${SSID}`,
     range: `${SSName}!AC${Row[0]}:AP${Row[0]}`
   });
-  RPA.Logger.info(PhotoshopData);
+  RPA.Logger.info(PhotoshopData); 
+}
 
-  await exportCSV(PhotoshopData);
-
-  // 配列をcsvで保存
-  async function exportCSV(content) {
-    for (var i = 0; i < content.length; i++) {
-      var value = content[i];
-      for (var j = 0; j < value.length; j++) {
-        var innerValue = value[j] === null ? '' : value[j].toString();
-        var result = innerValue.replace(/"/g, '""');
-        if (result.search(/("|,|\n)/g) >= 0) result = '"' + result + '"';
-        if (j > 0) formatCSV += ',';
-        formatCSV += result;
-      }
-      formatCSV += '\n';
+// 配列をcsvで保存
+async function exportCSV(content) {
+  for (var i = 0; i < content.length; i++) {
+    var value = content[i];
+    for (var j = 0; j < value.length; j++) {
+      var innerValue = value[j] === null ? '' : value[j].toString();
+      var result = innerValue.replace(/"/g, '""');
+      if (result.search(/("|,|\n)/g) >= 0) result = '"' + result + '"';
+      if (j > 0) formatCSV += ',';
+      formatCSV += result;
     }
-    fs.writeFile('formList.csv', formatCSV, 'utf8', function(err) {
-      if (err) {
-        RPA.Logger.info('保存できませんでした');
-      } else {
-        RPA.Logger.info('保存しました');
-      }
-    });
+    formatCSV += '\n';
   }
+  fs.writeFile('formList.csv', formatCSV, 'utf8', function(err) {
+    if (err) {
+      RPA.Logger.info('保存できませんでした');
+    } else {
+      RPA.Logger.info('保存しました');
+    }
+  });
+}
+
+// 取得したデータをダウンロードフォルダに保存
+async function GetFilePath(FilePathData) {
+  RPA.Logger.info(DownloadFolder);
+  RPA.Logger.info(DownloadFolder2);
+  const path = require('path');
+  const dirPath = path.resolve(DownloadFolder);
+  const DLFolderData = [];
+  DLFolderData[0] = fs.readdirSync(dirPath);
+  RPA.Logger.info(DLFolderData[0]);
+  // .jpgが含まれているファイルを取得
+  for (let i in DLFolderData[0]) {
+    if (DLFolderData[0][i].indexOf('.jpg') > 1) {
+      FilePathData.push(DLFolderData[0][i]);
+    }
+  }
+  RPA.Logger.info(FilePathData);
+  const dirPath2 = path.resolve(DownloadFolder2);
+  const DownloadFolderData = [];
+  DownloadFolderData[0] = fs.readdirSync(dirPath2);
+  RPA.Logger.info(DownloadFolderData[0]);
 }
