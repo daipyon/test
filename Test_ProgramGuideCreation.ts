@@ -17,7 +17,8 @@ RPA.Logger.level = 'INFO';
 const SSID = process.env.Senden_Twitter_SheetID3;
 const SSName = process.env.Senden_Twitter_SheetName;
 // 画像などを保存するフォルダのパスを記載 ※.envファイルは同じにしない
-const DownloadFolder = process.env.Senden_Twitter_DownloadFolder4;
+const DownloadFolder = __dirname + '/DL/';
+const DownloadFolder2 = process.env.Senden_Twitter_DownloadFolder4;
 // 番組表リンク
 const Link1 = process.env.Program_Guide_Link1;
 const Link2 = process.env.Program_Guide_Link2;
@@ -605,13 +606,25 @@ async function JudgeData(WorkData, Row, Link1, Link2, Link3) {
             values: [[Renamming]]
           });
         }
-        // ダウンロードフォルダに保存
+        // DLフォルダに保存
         request(
           { method: 'GET', url: ImageUrlRename, encoding: null },
           function(error, response, body) {
             if (!error && response.statusCode === 200) {
               fs.writeFileSync(
                 `${DownloadFolder}/${Renamming}`,
+                body,
+                'binary'
+              );
+            }
+          }
+        // ダウンロードフォルダに保存
+        request(
+          { method: 'GET', url: ImageUrlRename, encoding: null },
+          function(error, response, body) {
+            if (!error && response.statusCode === 200) {
+              fs.writeFileSync(
+                `${DownloadFolder2}/${Renamming}`,
                 body,
                 'binary'
               );
@@ -1160,13 +1173,25 @@ async function JudgeData(WorkData, Row, Link1, Link2, Link3) {
             values: [[Renamming]]
           });
         }
-        // ダウンロードフォルダに保存
+        // DLフォルダに保存
         request(
           { method: 'GET', url: ImageUrlRename, encoding: null },
           function(error, response, body) {
             if (!error && response.statusCode === 200) {
               fs.writeFileSync(
                 `${DownloadFolder}/${Renamming}`,
+                body,
+                'binary'
+              );
+            }
+          }
+        // ダウンロードフォルダに保存
+        request(
+          { method: 'GET', url: ImageUrlRename, encoding: null },
+          function(error, response, body) {
+            if (!error && response.statusCode === 200) {
+              fs.writeFileSync(
+                `${DownloadFolder2}/${Renamming}`,
                 body,
                 'binary'
               );
