@@ -193,6 +193,8 @@ async function VideoDate(Yesterday) {
     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
     await RPA.WebBrowser.sendKeys(EndDate, [split[2]]);
+    // スペースを入れると「適用」ボタンを押すことができる
+    await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.SPACE]);
     await RPA.sleep(1000);
     await RPA.WebBrowser.takeScreenshot();
     // const ApplyButton = await RPA.WebBrowser.findElementById('apply-button');
