@@ -223,7 +223,12 @@ async function GetData() {
       5000
     );
     const RangeText = await Range.getText();
-    var text = await RangeText.split(/[\–\/\s]+/);
+    
+    // テスト用
+    // var text = await RangeText.split(/[\–\/\s]+/);
+
+    // 本番用
+    var text = await RangeText.split(/[\～\/\s]+/);
     await RPA.Logger.info(RangeText);
     await RPA.Logger.info(text);
     await RPA.Logger.info('ヒットした合計数 → ' + text[3]);
