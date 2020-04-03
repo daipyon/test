@@ -145,7 +145,7 @@ async function VideoDate(Yesterday) {
 
     // 本番用
     const Videodate = await RPA.WebBrowser.wait(
-      RPA.WebBrowser.Until.elementLocated({ id: 'text-item-9' }),
+      RPA.WebBrowser.Until.elementLocated({ id: 'text-item-4' }),
       5000
     );
     await RPA.WebBrowser.mouseClick(Videodate);
