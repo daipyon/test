@@ -333,7 +333,12 @@ async function SetData() {
   await RPA.Logger.info('この行から記載します　　　 → ', LastRow);
   for (let i in TextList) {
     await RPA.Logger.info(LastRow + Number(i), '行目');
-    if (TextList[i] == 'Published') {
+    
+    // テスト用
+    // if (TextList[i] == 'Published') {
+
+    // 本番用
+    if (TextList[i] == '公開日') {
       await RPA.Logger.info('日付を記載します');
       // B列に公開日を記載
       await RPA.Google.Spreadsheet.setValues({
