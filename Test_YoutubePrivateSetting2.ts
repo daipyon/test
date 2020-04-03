@@ -176,12 +176,12 @@ async function VideoDate(Yesterday) {
       }),
       5000
     );
-    await RPA.WebBrowser.sendKeys(StartDate, [Yesterday[0]]);
+    await RPA.WebBrowser.sendKeys(StartDate, [Yesterday]);
     await RPA.sleep(500);
     const EndDate = await RPA.WebBrowser.findElementByXPath(
       '//*[@id="input-2"]/input'
     );
-    await RPA.WebBrowser.sendKeys(EndDate, [Yesterday[0]]);
+    await RPA.WebBrowser.sendKeys(EndDate, [Yesterday]);
     await RPA.sleep(1000);
     await RPA.WebBrowser.takeScreenshot();
     // const ApplyButton = await RPA.WebBrowser.findElementById('apply-button');
