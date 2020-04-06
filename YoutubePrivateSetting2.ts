@@ -60,7 +60,7 @@ async function Start() {
 Start();
 
 async function Work(Yesterday) {
-  // Youtube Studuoにログイン
+  // Youtube Studioにログイン
   await YoutubeLogin();
   // 動画の日付を指定
   await VideoDate(Yesterday);
@@ -81,7 +81,7 @@ async function SlackPost(Text) {
 // テストは海外版、本番は日本版であることに注意！
 async function YoutubeLogin() {
   try {
-    await RPA.Logger.info('Youtube Studuoにログインします');
+    await RPA.Logger.info('Youtube Studioにログインします');
     await RPA.WebBrowser.get(process.env.Youtube_Studio_Url);
     await RPA.sleep(2000);
     const LoginID = await RPA.WebBrowser.wait(
