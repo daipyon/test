@@ -112,7 +112,7 @@ async function YoutubeLogin() {
       await RPA.WebBrowser.mouseClick(NextButton2);
     }
     while (0 == 0) {
-      await RPA.sleep(5000);
+      await RPA.sleep(10000);
       const Filter = await RPA.WebBrowser.driver
         .findElement(By.id('text-input'))
         .getAttribute('placeholder');
