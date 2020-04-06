@@ -118,7 +118,6 @@ async function YoutubeLogin() {
         .getAttribute('placeholder');
       if (Filter.length >= 1) {
         await RPA.Logger.info('＊＊＊ログイン成功しました＊＊＊');
-        await RPA.WebBrowser.takeScreenshot();
         break;
       }
     }
@@ -136,7 +135,6 @@ async function VideoDate(Yesterday) {
     );
     await RPA.WebBrowser.mouseClick(Icon);
     await RPA.sleep(1000);
-    await RPA.WebBrowser.takeScreenshot();
 
     // テスト用
     // const Videodate = await RPA.WebBrowser.wait(
@@ -151,7 +149,6 @@ async function VideoDate(Yesterday) {
     );
     await RPA.WebBrowser.mouseClick(Videodate);
     await RPA.sleep(1000);
-    await RPA.WebBrowser.takeScreenshot();
 
     // テスト用
     // const Click = await RPA.WebBrowser.wait(
@@ -195,7 +192,6 @@ async function VideoDate(Yesterday) {
     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
     await RPA.sleep(500);
     await RPA.WebBrowser.sendKeys(EndDate, [split[2]]);
-    await RPA.WebBrowser.takeScreenshot();
     // スペースを入れると「適用」ボタンを押すことができる
     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.SPACE]);
     await RPA.sleep(1000);
