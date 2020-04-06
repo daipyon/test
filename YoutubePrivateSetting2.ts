@@ -316,7 +316,7 @@ async function SetData() {
   // シートの最終行の次の行を取得
   const WorkRow3 = await RPA.Google.Spreadsheet.getValues({
     spreadsheetId: `${SSID}`,
-    range: `${SSName2}!B1:B30000`
+    range: `${SSName2}!D1:D30000`
   });
   const LastRow = WorkRow3.length + 1;
   await RPA.Logger.info('この行から記載します　　　 → ', LastRow);
