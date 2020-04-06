@@ -190,10 +190,10 @@ async function VideoDate(Yesterday) {
       '//*[@id="input-2"]/input'
     );
     await RPA.WebBrowser.sendKeys(EndDate, [split[0] + '/' + split[1] + '/']);
-    await RPA.sleep(500);
-    await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
-    await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
-    await RPA.sleep(500);
+//     await RPA.sleep(500);
+//     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
+//     await RPA.WebBrowser.sendKeys(EndDate, [RPA.WebBrowser.Key.BACK_SPACE]);
+//     await RPA.sleep(500);
     await RPA.WebBrowser.sendKeys(EndDate, [split[2]]);
     await RPA.WebBrowser.takeScreenshot();
     // スペースを入れると「適用」ボタンを押すことができる
