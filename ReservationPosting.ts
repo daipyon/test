@@ -1,6 +1,6 @@
 import RPA from 'ts-rpa';
 import { By, Key, WebElement } from 'selenium-webdriver';
-const fs = require('fs');
+// const fs = require('fs');
 
 // SlackのトークンとチャンネルID
 const Slack_Token = process.env.AbemaTV_RPAError_Token;
