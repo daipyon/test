@@ -109,10 +109,10 @@ async function GetDataRow(FilePathData, FilePathDate, WorkData, Row) {
   // ".png"の文字を削除
   // FilePathDate[0] = await FilePathData[0].slice(0, -4);
   // await RPA.Logger.info(FilePathDate);
-  const JudgeData = await RPA.Google.Spreadsheet.getValues({
-    spreadsheetId: `${mySSID}`,
-    range: `${SSName}!C6:C30000`
-  });
+  //   const JudgeData = await RPA.Google.Spreadsheet.getValues({
+  //     spreadsheetId: `${mySSID}`,
+  //     range: `${SSName}!C6:C30000`
+  //   });
   // for (let i in JudgeData) {
   //   if (FilePathDate[0] == JudgeData[i][0]) {
   //     await RPA.Logger.info(JudgeData[i][0]);
