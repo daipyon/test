@@ -36,7 +36,7 @@ async function Start() {
       expiryDate: parseInt(process.env.GOOGLE_EXPIRY_DATE, 10)
     });
     // DLフォルダ内のファイルを削除
-//     await DeleteFiles();
+    await DeleteFiles();
     // 番組表フォルダからファイルを取得
     const GoogleDriveFolderList = await RPA.Google.Drive.listFiles({
       parents: [`${process.env.Senden_Twitter_GoogleDriveFolderID}`]
