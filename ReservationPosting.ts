@@ -406,6 +406,7 @@ async function ReservationTweet(WorkData, FilePathData) {
   await RPA.sleep(300);
   await ReservationTime.sendKeys(Key.ENTER);
   await RPA.sleep(500);
+  await RPA.WebBrowser.takeScreenshot();
   // 【予約設定する】をクリック
   // const ReservationSettings2: WebElement = await RPA.WebBrowser.driver.executeScript(
   //   `return document.getElementsByClassName('ButtonGroup ButtonGroup--primary w0xuLYbb--TweetComposer-submitTweetButton')[0].children[0]`
