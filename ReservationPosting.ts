@@ -326,7 +326,7 @@ async function SearchCardName(FilePathDate) {
             i
           )}].children[0].children[1]`
         );
-        await RPA.WebBrowser.mouseMove(CreatedCard);
+//         await RPA.WebBrowser.mouseMove(CreatedCard);
         // 【ツイート】をクリック
         await RPA.WebBrowser.mouseClick(CreatedCard);
         break;
