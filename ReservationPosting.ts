@@ -279,16 +279,16 @@ async function CreateWebSiteCard(FilePathData, FilePathDate) {
   );
 
   // テスト用
-  // await RPA.WebBrowser.sendKeys(CardName, [
-  //   `※※※RPAテストです※※※ ${FilePathDate[0]}`
-  // ]);
+  await RPA.WebBrowser.sendKeys(CardName, [
+    `※※※RPAテストです※※※ ${FilePathDate[0]}`
+  ]);
 
   // 本番用
-  await RPA.WebBrowser.sendKeys(CardName, [FilePathDate[0]]);
+  // await RPA.WebBrowser.sendKeys(CardName, [FilePathDate[0]]);
 
   // 【作成】をクリック
   const Create: WebElement = await RPA.WebBrowser.driver.executeScript(
-    `return document.getElementsByClassName('Button Button--primary Button--small is-disabled')[0]`
+    `return document.getElementsByClassName('Button Button--primary Button--small')[0]`
   );
   await RPA.WebBrowser.mouseClick(Create);
   await RPA.sleep(5000);
@@ -319,10 +319,9 @@ async function SearchCardName(FilePathDate) {
       await RPA.Logger.info(SearchCardNameText);
 
       // テスト用
-      // if (SearchCardNameText == `※※※RPAテストです※※※ ${FilePathDate[0]}`) {
-
-      // 本番用
-      if (SearchCardNameText == FilePathDate[0]) {
+      if (SearchCardNameText == `※※※RPAテストです※※※ ${FilePathDate[0]}`) {
+        // 本番用
+        // if (SearchCardNameText == FilePathDate[0]) {
         await RPA.Logger.info('    ↑     一致しました');
         const CreatedCard: WebElement = await RPA.WebBrowser.driver.executeScript(
           `return document.getElementsByClassName('src-cardsmanager-views-CardsGrid-styles-module--cardOverlay')[${Number(
@@ -359,10 +358,12 @@ async function ReservationTweet(WorkData, FilePathData) {
     5000
   );
   // そのままでは絵文字が入力できないためエンコードする
-  // const Text1 = await encodeURI(WorkData[0][0][11]);
 
   // テスト用
   const Text1 = await encodeURI(`※※※RPAテストです※※※\n${WorkData[0][0][11]}`);
+
+  // 本番用
+  // const Text1 = await encodeURI(WorkData[0][0][11]);
   await RPA.WebBrowser.driver.executeScript(
     `document.getElementsByClassName("KYqgv_Qj--TweetComposer-tweetTextarea")[0].value = decodeURI("${Text1}")`
   );
