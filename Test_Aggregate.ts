@@ -556,6 +556,7 @@ async function YoutubeLogin() {
       await RPA.WebBrowser.sendKeys(GoogleLoginPW, [
         `${process.env.Youtube_Login_MLeaguePW}`
       ]);
+      await RPA.WebBrowser.takeScreenshot();
     } else {
       await RPA.WebBrowser.sendKeys(GoogleLoginPW, [
         `${process.env.Youtube_Login_PW}`
@@ -563,6 +564,7 @@ async function YoutubeLogin() {
     }
     const NextButton2 = await RPA.WebBrowser.findElementById('submit');
     await RPA.WebBrowser.mouseClick(NextButton2);
+    await RPA.WebBrowser.takeScreenshot();
   }
 
   // 6/10 追加修正
