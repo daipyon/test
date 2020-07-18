@@ -636,7 +636,7 @@ const ColumnList = [
 ];
 async function GetColumn() {
   // 記載する開始列を取得
-  for (let i in SheetData) {
+  for (let i in ColumnList) {
     if (Today == SheetData[2][i]) {
       Column = ColumnList[i];
       break;
