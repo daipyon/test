@@ -113,6 +113,7 @@ async function Start() {
                 Row2 = Row + Number(e);
                 await Row3.push(Row2);
                 await RPA.Logger.info(`${Column} 列 :${Row2} 行目`);
+                await RPA.Logger.info(`列のカウント${Column2}`);
                 if (SheetData[Row2 - 1][Column2] != undefined) {
                   await RPA.Logger.info(
                     `${
