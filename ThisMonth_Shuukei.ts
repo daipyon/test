@@ -333,6 +333,8 @@ async function YoutubeLogin() {
   }
 }
 
+await RPA.WebBrowser.takeScreenshot();
+
 async function YoutubeLogin2() {
   while (0 == 0) {
     await RPA.sleep(5000);
@@ -349,6 +351,7 @@ async function YoutubeLogin2() {
 let Icon;
 let UploadVideo;
 async function SetProgram() {
+  wait RPA.WebBrowser.takeScreenshot();
   await RPA.Logger.info(`現在の番組名：【${CurrentProgramName}】`);
   await Wait();
   // アイコンをクリック
@@ -358,12 +361,13 @@ async function SetProgram() {
   // 格納した番組名を入力
   await RPA.WebBrowser.sendKeys(Icon, [CurrentProgramName]);
   await RPA.sleep(1000);
+  wait RPA.WebBrowser.takeScreenshot();
   await RPA.WebBrowser.sendKeys(Icon, [RPA.WebBrowser.Key.ENTER]);
   await RPA.sleep(3000);
+  wait RPA.WebBrowser.takeScreenshot();
   // カーソルが被って視聴回数が取得できないため、画面上部にカーソルを動かす
   await RPA.WebBrowser.mouseMove(UploadVideo);
   await RPA.sleep(1000);
-  await RPA.WebBrowser.takeScreenshot();
 }
 
 let ShityouKaisuu;
