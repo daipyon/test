@@ -332,6 +332,8 @@ async function YoutubeLogin() {
     }
   }
   await RPA.WebBrowser.takeScreenshot();
+  const DOM = await RPA.WebBrowser.driver.getPageSource();
+      await RPA.Logger.info(DOM);
 }
 
 async function YoutubeLogin2() {
