@@ -363,6 +363,7 @@ async function SetProgram() {
   // カーソルが被って視聴回数が取得できないため、画面上部にカーソルを動かす
   await RPA.WebBrowser.mouseMove(UploadVideo);
   await RPA.sleep(1000);
+  await RPA.WebBrowser.takeScreenshot();
 }
 
 let ShityouKaisuu;
