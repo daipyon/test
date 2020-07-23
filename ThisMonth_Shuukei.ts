@@ -3,15 +3,15 @@ import { WebElement } from 'selenium-webdriver';
 const moment = require('moment');
 
 const Kyou = moment()
-  .subtract(21, 'days')
+  .subtract(20, 'days')
   .format('M/D');
 RPA.Logger.info(Kyou);
 const Today = moment()
-  .subtract(3, 'days')
+  .subtract(2, 'days')
   .format('YYYY/MM/DD');
 RPA.Logger.info(`今日　　　 → ${Today}`);
 const Yesterday = moment()
-  .subtract(4, 'days')
+  .subtract(3, 'days')
   .format('YYYY/MM/DD');
 RPA.Logger.info(`前日　　　 → ${Yesterday}`);
 // 今月をフォーマット変更して取得
