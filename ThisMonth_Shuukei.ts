@@ -367,6 +367,12 @@ async function SetProgram() {
   await RPA.sleep(3000);
   wait RPA.WebBrowser.takeScreenshot();
   // カーソルが被って視聴回数が取得できないため、画面上部にカーソルを動かす
+  UploadVideo = await RPA.WebBrowser.wait(
+    RPA.WebBrowser.Until.elementLocated({
+      id: 'video-list-uploads-tab'
+    }),
+    15000
+  );
   await RPA.WebBrowser.mouseMove(UploadVideo);
   await RPA.sleep(1000);
 }
