@@ -331,9 +331,8 @@ async function YoutubeLogin() {
       break;
     }
   }
+  await RPA.WebBrowser.takeScreenshot();
 }
-
-await RPA.WebBrowser.takeScreenshot();
 
 async function YoutubeLogin2() {
   while (0 == 0) {
