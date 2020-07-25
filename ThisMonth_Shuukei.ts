@@ -29,8 +29,7 @@ const mySSID = process.env.My_SheetID2;
 // 今月のシートIDを取得
 let ThisMonthSheetID;
 // シート名
-// const SSName = [`News`, `公式`, `バラエティ`, `恋リア`, `Mリーグ`];
-const SSName = [`公式`];
+const SSName = [`News`, `公式`, `バラエティ`, `恋リア`, `Mリーグ`];
 // 現在のシート名
 let CurrentSSName;
 
