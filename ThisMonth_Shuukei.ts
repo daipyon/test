@@ -573,7 +573,7 @@ async function GetShityoukaisuu() {
           // １ページ分 = 30件分だけ回す
           for (let n = 0; n <= 29; n++) {
             // 2ページ目で検索結果が30件以下の場合
-            if (FisrtGetDataFlag == `false` && Total <= 30) {
+            if (FisrtGetDataFlag == `false` && Total < 30) {
               await RPA.Logger.info(
                 `ヒットした件数：${Total} 件 → 30件以下です`
               );
