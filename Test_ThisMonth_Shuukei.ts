@@ -171,7 +171,7 @@ async function Start() {
         // if (CurrentProgramName == LastProgramName) {
         //   await RPA.Logger.info(`番組名が不一致のためストップします`);
         // }
-        if (CurrentProgramName == undefined) {
+        if (CurrentProgramName != undefined) {
           if (TitleList.length > 0) {
             NewSetShityoukaisuuStartRow =
               NewSetShityoukaisuuStartRow - TitleList.length;
