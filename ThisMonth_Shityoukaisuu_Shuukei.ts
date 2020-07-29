@@ -171,9 +171,9 @@ async function Start() {
       // await RPA.Logger.info(DOM);
       await RPA.SystemLogger.error(ErrorText);
       Slack_Text[0] = `【Youtube 集計】今月シート（視聴回数） でエラーが発生しました！\n${ErrorText}`;
-      // await RPA.WebBrowser.takeScreenshot();
+      await RPA.WebBrowser.takeScreenshot();
     }
-    // await SlackPost(Slack_Text[0]);
+    await SlackPost(Slack_Text[0]);
     await RPA.WebBrowser.quit();
     await RPA.sleep(1000);
     await process.exit();
